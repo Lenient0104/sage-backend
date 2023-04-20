@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "sage-backend"
+version = "0.1.0"
+description = ""
+authors = ["Rudra Arora <aroraru@tcd.ie>"]
+readme = "README.md"
+packages = [{include = "sage_backend"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2"
+djangorestframework = "^3.14.0"
+psycopg2 = "^2.9.6"
+djangorestframework-gis = "^1.0"
+django-cors-headers = "^3.14.0"
+networkx = "^3.1"
+pandas = "^2.0.0"
+
+
+[tool.poetry.group.dev.dependencies]
+autopep8 = "^2.0.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
