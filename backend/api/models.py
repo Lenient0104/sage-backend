@@ -28,6 +28,20 @@ class Edges(models.Model):
         db_table = 'edges'
 
 
+class DublinStops(models.Model):
+    stop_id = models.CharField(primary_key=True, max_length=20)
+    stop_name = models.CharField(max_length=100, blank=True, null=True)
+    stop_lat = models.DecimalField(
+        max_digits=10, decimal_places=8, blank=True, null=True)
+    stop_lon = models.DecimalField(
+        max_digits=10, decimal_places=8, blank=True, null=True)
+    location = models.PointField(blank=False, null=False)
+
+    class Meta:
+        managed = False
+        db_table = 'dublin_stops'
+
+
 class DublinBusRoutes(models.Model):
     stop_id = models.CharField(max_length=45, blank=True, null=True)
     stop_name = models.CharField(max_length=45, blank=True, null=True)
@@ -50,20 +64,6 @@ class DublinBusRoutes(models.Model):
     class Meta:
         managed = False
         db_table = 'dublin_bus_routes'
-
-
-class DublinStops(models.Model):
-    stop_id = models.CharField(primary_key=True, max_length=20)
-    stop_name = models.CharField(max_length=100, blank=True, null=True)
-    stop_lat = models.DecimalField(
-        max_digits=10, decimal_places=8, blank=True, null=True)
-    stop_lon = models.DecimalField(
-        max_digits=10, decimal_places=8, blank=True, null=True)
-    location = models.PointField(blank=False, null=False)
-
-    class Meta:
-        managed = False
-        db_table = 'dublin_stops'
 
 
 class Routes(models.Model):
